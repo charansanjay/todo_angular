@@ -1,0 +1,28 @@
+<div class="task-details" *ngIf="task">
+  <h2>Task Details</h2>
+  <div class="task-details-body">
+    <div class="task-details-title">
+      Title: <span>{{ task.title }}</span>
+    </div>
+    <div class="form-group">
+      <label for="taskStatus">Status: </label>
+      <select class="form-control" id="taskStatus"
+        [style.color]="getStatusColor(task.status)"
+        [(ngModel)]="task.status" (change)="updateTask()">
+        <option value="New">New</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Canceled">Canceled</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+    <!-- <div class="task-details-status">
+      Status: <span>{{ task.status }}</span>
+    </div> -->
+    <div class="task-details-created">
+      Created: <span> {{ task.created | date : "MMM d, y, h:mm a" }}</span>
+    </div>
+    <div class="task-details-updated" *ngIf="task.updated">
+      Last updated: <span>{{ task.updated | date : "MMM d, y, h:mm a" }}</span>
+    </div>
+  </div>
+</div>

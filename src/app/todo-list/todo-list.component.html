@@ -1,0 +1,113 @@
+<!-- <div class="todo-list">
+  <h2>Todo List</h2>
+  <div class="input-section">
+    <input type="text" placeholder="Add a new task" [(ngModel)]="newTaskTitle" />
+    <button (click)="addTask()">Add</button>
+  </div>
+  <div class="tasks-section">
+    <ul *ngIf="tasks.length > 0; else noTasks">
+      <li *ngFor="let task of tasks">
+        <span>{{ task.number }}. {{ task.title }}</span>
+        
+        <span class="status">Status: {{ task.status }}</span>
+        <span class="created">Created: {{ task.created | date: 'medium' }}</span>
+        <span class="updated">Updated: {{ task.updated | date: 'medium' }}</span>
+        <div class="buttons">
+          <button (click)="editTask(task)">Edit</button>
+          <button (click)="deleteTask(task)">Delete</button>
+        </div>
+      </li>
+    </ul>
+    <ng-template #noTasks>
+      <p>No tasks present</p>
+    </ng-template>
+  </div>
+</div> -->
+
+<!-- <div class="todo-list">
+  <h2>Todo List</h2>
+
+  <div class="input-section">
+    <input [(ngModel)]="newTaskTitle" (keyup.enter)="addTask()" placeholder="Enter a new task" />
+    <button (click)="addTask()">Add</button>
+  </div>
+
+  <div class="tasks-section">
+    <ul *ngIf="tasks.length > 0; else noTasks">
+      <li *ngFor="let task of tasks; let i = index">
+        <span class="number"> {{ i + 1 }}. </span>
+        <span class="title">{{ task.title }}</span>
+        <span class="status">({{ task.status }})</span>
+        <span class="created">Created: {{ task.created | date }}</span>
+        <span class="updated" *ngIf="task.updated">Updated: {{ task.updated | date }}</span>
+        <div class="buttons">
+          <button class="edit" (click)="editTask(task)">Edit</button>
+          <button class="delete" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+    <ng-template #noTasks>
+      <p>No tasks present</p>
+    </ng-template>
+  </div>
+</div> -->
+
+<div class="todo-list">
+  <h2 class="title">Todo List</h2>
+  <div class="add-task">
+    <input [(ngModel)]="newTaskTitle" placeholder="Enter a new task..." />
+    <button class="add-task-button" (click)="addTask()">Add</button>
+  </div>
+  <div class="task-list">
+    <div *ngIf="tasks.length === 0" class="no-tasks">No tasks present</div>
+    <div
+      *ngFor="let task of tasks"
+      class="task-item"
+      [class.editing]="task.id === editTaskId"
+    >
+      <div class="task-header">
+        <div class="task-title" *ngIf="task.id !== editTaskId">
+          <span class="number"> {{ task.id }}. </span>
+          <a [routerLink]="['/tasks', task.id]">{{ task.title }}</a>
+        </div>
+        <input
+          class="edit-task-input"
+          [(ngModel)]="editTaskTitle"
+          *ngIf="task.id === editTaskId"
+          (keyup.enter)="updateTask()"
+        />
+
+        <div class="task-status">{{ task.status }}</div>
+        <div class="task-date">
+          Created: {{ task.created | date : "MMM d, y, h:mm a" }}
+        </div>
+        <div class="task-date" *ngIf="task.updated">
+          Last updated: {{ task.updated | date : "MMM d, y, h:mm a" }}
+        </div>
+
+        <button
+          class="edit-task"
+          *ngIf="editTaskId !== task.id"
+          (click)="editTask(task)"
+        >
+          Edit
+        </button>
+
+        <button class="delete-task" (click)="deleteTask(task)">Delete</button>
+      </div>
+      <!-- <div class="task-actions">
+  <div class="task-title" *ngIf="editTaskId !== task.id">
+    {{ task.title }}
+    <button (click)="editTask(task)">Edit</button>
+  </div>
+  <div *ngIf="editTaskId === task.id">
+    <input [(ngModel)]="editTaskTitle" (keyup.enter)="updateTask()" placeholder="Edit task" />
+    <button (click)="updateTask()">Save</button>
+  </div>
+<button class="cancel-task" *ngIf="task.id === editTaskId" (click)="endEdit()">Cancel</button>
+<button class="delete-task" (click)="deleteTask(task)">Delete</button>
+</div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+.task-details {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+
+  h2 {
+    text-decoration: underline;
+  }
+
+  .task-details-body {
+    padding: 16px;
+    font-weight: bold;
+
+    .task-details-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 25px;
+
+      span {
+        color: rgb(105, 186, 206);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      display: flex;
+
+
+      label {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      select {
+        display: block;
+        width: 20%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+
+      select#taskStatus {
+        option[value="New"] {
+          color: blue;
+        }
+
+        option[value="Ongoing"] {
+          color: orange;
+        }
+
+        option[value="Canceled"] {
+          color: red;
+        }
+
+        option[value="Completed"] {
+          color: green;
+        }
+      }
+
+      select:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+      }
+    }
+
+    .task-details-status {
+      font-size: 18px;
+      margin-bottom: 8px;
+
+      span {
+        color: rgb(81, 129, 8);
+      }
+    }
+
+    .task-details-created {
+      font-size: 16px;
+      margin-bottom: 8px;
+
+      span {
+        color: grey;
+      }
+    }
+
+    .task-details-updated {
+      font-size: 16px;
+      margin-bottom: 8px;
+
+      span {
+        color: grey;
+      }
+    }
+  }
+
+  /* .task-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f2f2f2;
+
+    h2 {
+      margin: 0;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #3e8e41;
+      }
+    } */
+}
